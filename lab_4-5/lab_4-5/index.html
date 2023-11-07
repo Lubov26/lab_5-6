@@ -1,0 +1,121 @@
+<!-- сообщаем браузеру, как стоит обрабатывать эту страницу -->
+<!DOCTYPE html>
+
+<!-- оболочка дока, язык содержимого -->
+<html lang="en">
+
+   <!-- заголовок страницы -->
+   <head>
+
+      <!-- кодировка -->
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ 
+      <!-- заголовок страницы в браузере -->
+      <title>lab_5-6</title>
+
+      <!-- подключение шрифтов -->
+
+   
+      <!-- подключение CSS таблицы стилей -->
+      <link rel="stylesheet" href="css/style.css">
+
+   </head>
+
+   <!-- отображаемое тело страницы -->
+   <body>
+      <div id="message-form">
+         <div>
+            <h1>Contact Us</h1> 
+            <p>Your massege was sent, thank you!</p> 
+         </div>
+               <form name="form" onsubmit="return validate()">
+               
+               <div class="flex">
+                  <!-- имя -->
+                  <div>
+                     <h2 class="label">FULL NAME</h2>
+                     <label for="name">
+                        <input type="text" id="name" name="name" value="" placeholder="Name" />
+                        <span id="form-name"></span>
+                     </label> 
+                  </div>
+   
+                  <!-- почта -->
+                  <div>
+                     <h2 class="label">EMAIL ADDRESS</h2>
+                     <label for="email">
+                        <input type="text" id="email" name="email" value="" placeholder="Email" />
+                        <span id="form-email"></span>
+                     </label>  
+                  </div>
+               </div>
+               
+               <!-- предмет -->
+               <div>		        
+                  <h2 class="label">SUBJECT</h2>  
+                  <label for="subject">
+                     <input type="text" id="subject" name="subject" value="" placeholder="Subject" />
+                     <span id="form-subject"></span>
+                  </label>
+               </div>
+
+               <!-- сообщение -->
+               <div>		    
+                  <h2 class="label">MESSAGE</h2>      
+                  <label for="message">
+                     <textarea id="message" name="message" placeholder="Message" ></textarea> 
+                     <span id="messagef"></span>
+                  </label>  
+               </div>
+
+               <!-- кнопка -->
+               <div>		           
+                  <button name="send" type="send" id="send" >SEND MESSAGE</button>
+               </div>
+
+               </form>
+         </div>
+
+         <!-- скрипт -->
+            <script type="text/javascript">
+            function validate(){
+      
+            var w=document.forms['form']['name'].value;
+            var x=document.forms['form']['email'].value;
+            var y=document.forms['form']['subject'].value;
+            var z=document.forms['form']['message'].value;
+      
+            if (w.length==0){
+               document.getElementById('form-name').innerHTML='*данное поле необходимо заполнить';
+               return false;
+               }
+      
+               if (x.length==0){
+               document.getElementById('form-email').innerHTML='*данное поле необходимо заполнить';
+               return false;
+               }
+      
+               at=x.indexOf("@");
+               dot=x.indexOf(".");
+      
+               if (at<1 || dot <1){
+               document.getElementById('form-email').innerHTML='*некорректный email';
+               return false;
+               }
+
+               if (y.length==0){
+               document.getElementById('form-subject').innerHTML='*данное поле необходимо заполнить';
+               return false;
+               }
+               
+               if (z.length==0){
+               document.getElementById('messagef').innerHTML='*данное поле необходимо заполнить';
+               return false;
+               }
+            }
+            </script>
+      
+   </body>
+
+</html>
